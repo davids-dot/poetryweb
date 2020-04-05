@@ -11,4 +11,33 @@
         from poems
         where id = #{id}
     </select>
+
+    <!--PoetDetailAndPoems getPoetDetailAndPoemsSummary(Integer poetId);-->
+
+    <resultMap id="poetDetailAndPoemsSummaryResultMap" type="com.david.poetry.bean.PoetDetailAndPoems">
+        <association property="poet" javaType="com.david.poetry.bean.Poet">
+            <id property="id" column="poet_id"></id>
+            <result property="name" column="name"></result>
+            <result property="introduceShort" column="introduce_short" ></result>
+            <result property="introduceLong" column="introduce_long"></result>
+        </association>
+
+        <collection property="poems" ofType="com.david.poetry.bean.Poem">
+             <id property="id" column="poem_id"></id>
+             <result property="title" column="title"></result>
+        </collection>
+    </resultMap>
+
+    <select id="getPoetDetailAndPoemsSummary" parameterType="int" resultMap="poetDetailAndPoemsSummaryResultMap">
+                          select t.id as poet_id ,
+                                 t.name,
+                                 t.intro_l as introduce_long,
+                                 t.intro_s as introduce_short,
+                                 t1.id as poem_id,
+                                 t1.title
+                          from poems_author t
+                                   inner join poems t1
+                                       on t.id = t1.author_id
+                          where t.id = #{poetId};
+    </select>
 </mapper>

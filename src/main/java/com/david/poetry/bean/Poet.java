@@ -15,5 +15,9 @@ public class Poet {
     String name;
     String dynasty;
 
+    String introduceShort;
+    String introduceLong;
+
+     /** 非数据库直接存储的属性 */
     Integer poemCount;
 }

@@ -24,11 +24,17 @@ public class PoetServiceImpl implements PoetService {
 
     @Override
     public List<Poet> searchPoets(String searchWord) {
-        if ("all".equals(searchWord)) {
-            return poetMapper.getPoetsAndPoemsNum(Integer.MAX_VALUE,Integer.MAX_VALUE);
-        }
         List<Poet> poets = poetMapper.getPoetsByName(searchWord);
         logger.debug("get poets from db,{}", poets);
         return poets;
+    }
+
+
+    //
+    private static final int EXTRA_POET_ID_SIZE = 20;
+
+    @Override
+    public List<Poet> getPoetsByIdRange(Integer minIncId, Integer size) {
+        return poetMapper.getPoetsAndPoemsNum(minIncId,minIncId + EXTRA_POET_ID_SIZE, size);
     }
 }

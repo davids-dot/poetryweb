@@ -26,5 +26,6 @@
         on t.id = t1.author_id
         where t.id >= #{0} and  #{1} > t.id
         group by t.id,t.name, t.dynasty
+        limit #{2}
     </select>
 </mapper>

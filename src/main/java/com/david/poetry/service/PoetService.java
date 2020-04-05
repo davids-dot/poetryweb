@@ -16,4 +16,12 @@ public interface PoetService {
      * @return 诗人信息列表
      */
     List<Poet> searchPoets(String searchWord);
+
+    /**
+     *  根据 id 范围查询诗人信息, 结果包含诗人作品数
+     * @param minIncId
+     * @param size
+     * @return
+     */
+    List<Poet> getPoetsByIdRange(Integer minIncId, Integer size);
 }

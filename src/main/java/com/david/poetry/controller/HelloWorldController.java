@@ -25,7 +25,7 @@ public class HelloWorldController {
             produces = ConstConfig.JSON_CONTENT_TYPE)
     public String hello() {
         if (poemMapper != null) {
-            Poem poem = poemMapper.getPoemById(1L);
+            Poem poem = poemMapper.getPoemById(1);
             System.out.println("titile:" + poem.getTitle());
 
             System.out.println("poem:"  + poem.toString() );

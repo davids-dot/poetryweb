@@ -1,6 +1,7 @@
 package com.david.poetry.dao;
 
 import  com.david.poetry.bean.Poem;
+import com.david.poetry.bean.PoetDetailAndPoems;
 
 /**
  * @author DavidStark
@@ -13,5 +14,8 @@ public interface PoemMapper {
      * @param id
      * @return
      */
-    Poem getPoemById(Long id);
+    Poem getPoemById(Integer id);
+
+
+    PoetDetailAndPoems getPoetDetailAndPoemsSummary(Integer poetId);
 }

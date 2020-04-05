@@ -17,13 +17,16 @@ public interface PoetMapper {
     List<Poet> getPoetsByName(String value);
 
 
+
+
     /**
-     *  诗人及其作品数目
+     *  根据id 查询 诗人
      * @param lowIncludeId 诗人 id 下界, 包含
-     * @param upExcludedId 诗人 id 上届, 不包含
+     * @param highExcId  id 上届，不包含，意义不大
+     * @param size  查询个数
      * @return
      */
-    List<Poet> getPoetsAndPoemsNum(Integer lowIncludeId, Integer upExcludedId);
+    List<Poet> getPoetsAndPoemsNum(Integer lowIncludeId, Integer highExcId , Integer size);
 
 
 }
