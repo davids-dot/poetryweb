@@ -5,4 +5,4 @@ sunglasses-web.iml
 target/
 *.iml
 out/
-profiles/aliyun/*
+profiles/aliyun/
